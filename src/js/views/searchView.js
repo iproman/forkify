@@ -28,8 +28,16 @@ const renderRecipe = recipe => {
 };
 
 /**
- * Render recipes.
  * @param recipes
- * @return {*}
+ * @param recipes
  */
-export const renderSearchResults = recipes => recipes.forEach(renderRecipe);
+export const renderSearchResults = recipes => {
+    recipes.forEach(renderRecipe);
+};
+
+/**
+ * Clear search input.
+ */
+export const clearInput = () => {
+    elements.searchInput.value = '';
+};
