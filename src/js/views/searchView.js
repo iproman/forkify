@@ -1,3 +1,5 @@
+import {elements} from './base';
+
 export const getSearchInput = () => {
-    return document.querySelector('.search__field').value;
+    return elements.searchInput.value;
 }
