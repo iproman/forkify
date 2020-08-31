@@ -41,3 +41,10 @@ export const renderSearchResults = recipes => {
 export const clearInput = () => {
     elements.searchInput.value = '';
 };
+
+/**
+ * Clear results.
+ */
+export const clearResults = () => {
+    elements.searchResultList.innerHTML = '';
+}
