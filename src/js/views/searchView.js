@@ -18,7 +18,7 @@ const renderRecipe = recipe => {
                         <img src="${recipe.image_url}" alt="${recipe.title}">
                     </figure>
                     <div class="results__data">
-                        <h4 class="results__name">${recipe.title}</h4>
+                        <h4 class="results__name">${limitRecipeTitle(recipe.title)}</h4>
                         <p class="results__author">${recipe.publisher}</p>
                     </div>
                 </a>
@@ -47,4 +47,28 @@ export const clearInput = () => {
  */
 export const clearResults = () => {
     elements.searchResultList.innerHTML = '';
+}
+
+/**
+ * Limit recipe title.
+ * @param title
+ * @param limit
+ * @return {string|*}
+ */
+const limitRecipeTitle = (title, limit = 17) => {
+    if (title.length > limit) {
+        const newTitle = [];
+        title.split(' ').reduce((prev, cur) => {
+            // prev = 15;
+            if (prev + cur.length <= limit) {
+                newTitle.push(cur);
+            }
+
+            return prev + cur.length;
+        }, 0);
+
+        return `${newTitle.join(' ')} ...`;
+    }
+
+    return title;
 }
