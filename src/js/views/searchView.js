@@ -95,6 +95,7 @@ export const clearInput = () => {
  */
 export const clearResults = () => {
     elements.searchResultList.innerHTML = '';
+    elements.pagination.innerHTML = '';
 }
 
 /**
