@@ -69,10 +69,15 @@ const renderButtons = (page, numResults, resPerPage) => {
 /**
  * Render search results with pagination.
  * @param recipes
- * @param recipes
+ * @param page
+ * @param resPerPage
  */
-export const renderSearchResults = recipes => {
-    recipes.forEach(renderRecipe);
+export const renderSearchResults = (recipes, page = 1, resPerPage = 10) => {
+    // render results of current page
+    const start = (page - 1) * resPerPage;
+    const end = page * resPerPage;
+
+    recipes.slice(start, end).forEach(renderRecipe);
 };
 
 /**
