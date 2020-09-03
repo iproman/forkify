@@ -28,6 +28,46 @@ const renderRecipe = recipe => {
 };
 
 /**
+ *
+ * @param page
+ * @param type
+ * @return {string}
+ */
+const createButton = (page, type) => `
+        <button class="btn-inline results__btn--${type}" 
+            data-goto="${type === 'prev' ? page - 1 : page + 1}">
+            <svg class="search__icon">
+                <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'right' : 'left'}"></use>
+            </svg>
+            <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
+        </button>`;
+
+
+/**
+ * Render pagination buttons.
+ * @param page
+ * @param numResults
+ * @param resPerPage
+ */
+const renderButtons = (page, numResults, resPerPage) => {
+
+    const pages = Math.ceil(numResults / resPerPage);
+    let button;
+    if (page === 1 && pages > 1) {
+        // Show next btn
+        button = createButton(page, 'next');
+    } else if (page < pages) {
+        // Show both buttons
+        button = `${createButton(page, 'prev')}${createButton(page, 'next')}`;
+    } else if (page === pages && pages > 1) {
+        // Show prev btn
+        button = createButton(page, 'prev');
+    }
+    elements.pagination.innerHTML = button;
+}
+
+/**
+ * Render search results with pagination.
  * @param recipes
  * @param recipes
  */
