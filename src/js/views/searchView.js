@@ -78,6 +78,9 @@ export const renderSearchResults = (recipes, page = 1, resPerPage = 10) => {
     const end = page * resPerPage;
 
     recipes.slice(start, end).forEach(renderRecipe);
+
+    // render pagination
+    renderButtons(page, recipes.length, resPerPage)
 };
 
 /**
