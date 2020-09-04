@@ -1,6 +1,7 @@
 import Search from './models/Search';
 import * as searchView from './views/searchView';
 import {clearLoader, elements, loader} from './views/base';
+import Recipe from './models/Recipe';
 
 /**
  * Global state of app
@@ -65,6 +66,11 @@ const controlRecipe = async () => {
     const id = window.location.hash.replace('#', '');
 
     if (id) {
+        // Prepare UI for changes
+
+        // Create new recipe object
+        state.recipe = new Recipe(id);
+
 
     }
 }
