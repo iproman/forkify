@@ -26,4 +26,21 @@ export default class Recipe {
             console.error('Something went wrong :(', e);
         }
     }
+
+    /**
+     * Calculate time.
+     */
+    calcTime() {
+        // Assuming that we need 15 min for each 3 ingredients
+        const numImg = this.ingredients.length;
+        const periods = Math.ceil(numImg / 3);
+        this.time = periods * 15;
+    }
+
+    /**
+     * Calculate servings.
+     */
+    calcServings() {
+        this.servings = 4;
+    }
 }
