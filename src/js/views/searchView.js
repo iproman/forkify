@@ -13,7 +13,7 @@ export const getSearchInput = () => elements.searchInput.value;
 const renderRecipe = recipe => {
     let markUp = `
             <li>
-                <a class="results__link results__link--active" href="${recipe.recipe_id}">
+                <a class="results__link results__link--active" href="#${recipe.recipe_id}">
                     <figure class="results__fig">
                         <img src="${recipe.image_url}" alt="${recipe.title}">
                     </figure>
