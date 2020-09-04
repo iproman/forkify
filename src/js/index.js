@@ -75,6 +75,12 @@ const controlRecipe = async () => {
             // Get recipe data
             await state.recipe.getRecipe();
 
+            // Calculate servings and time
+            state.recipe.calcTime();
+            state.recipe.calcServings();
+
+            // Render recipe
+            console.log(state.recipe);
         } catch (e) {
             console.error('Error processing recipe!', e);
         }
