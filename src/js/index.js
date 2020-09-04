@@ -11,6 +11,10 @@ import {clearLoader, elements, loader} from './views/base';
  */
 const state = {};
 
+/**
+ * Search controller
+ * @return {Promise<void>}
+ */
 const controlSearch = async () => {
     // Get query
     const query = searchView.getSearchInput();
@@ -52,3 +56,11 @@ elements.pagination.addEventListener('click', e => {
         searchView.renderSearchResults(state.search.result, goToPage);
     }
 });
+
+/**
+ * Recipe controller
+ */
+const controlRecipe = async () => {
+
+}
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe))
