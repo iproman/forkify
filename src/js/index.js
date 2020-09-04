@@ -61,6 +61,11 @@ elements.pagination.addEventListener('click', e => {
  * Recipe controller
  */
 const controlRecipe = async () => {
+    // Get ID from url
+    const id = window.location.hash.replace('#', '');
 
+    if (id) {
+
+    }
 }
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe))
