@@ -59,6 +59,9 @@ export default class Recipe {
                     ingredient = ingredient.replace(unit, unitsShort[i])
                 }
             });
+
+            // Remove parentheses
+            ingredient = ingredient.replace(/ *\([^)]*\) */g, ' ');
         });
         this.ingredients = newIngredients;
     }
