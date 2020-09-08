@@ -74,6 +74,13 @@ export default class Recipe {
                 // Ex. 4 1/2 cups, arrCount is [4, 1/2]
                 // Ex. 4 cups, arrCount is [4]
 
+            } else if (parseInt(arrIng[0], 10)) {
+                // There is NO unit, but 1st element is number
+                objIng = {
+                    count: parseInt(arrIng[0], 10),
+                    unit: '',
+                    ingredient: arrIng.slice(1).join(' ')
+                }
             } else if (unitIndex === -1) {
                 // There is no unit and no number in 1st position
                 objIng = {
