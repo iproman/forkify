@@ -10,12 +10,10 @@ const formatCount = count => {
     if (count) {
         // count = 2.5 --> 2 1/2
         // count = 0.5 --> 2 1/2
-        console.log('Count: ', count)
         const [int, dec] = count
             .toString()
             .split('.')
             .map(current => {
-                console.log('current: ', current);
                 return parseInt(current, 10)
             });
         if (!dec) return count;
