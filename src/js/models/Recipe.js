@@ -53,7 +53,7 @@ export default class Recipe {
 
         const units = [...unitsShort, 'kg', 'g'];
 
-        const newIngredients = this.ingredients.map(el => {
+        this.ingredients = this.ingredients.map(el => {
             // Uniform units
             let ingredient = el.toLowerCase();
             unitsLong.forEach((unit, i) => {
@@ -109,6 +109,5 @@ export default class Recipe {
 
             return objIng;
         });
-        this.ingredients = newIngredients;
     }
 }
