@@ -99,3 +99,10 @@ export const renderRecipe = recipe => {
 
   elements.recipe.insertAdjacentHTML('beforeend', markup);
 };
+
+/**
+ * Clear recipe view.
+ */
+export const clearRecipe = () => {
+  elements.recipe.innerHTML = '';
+}
