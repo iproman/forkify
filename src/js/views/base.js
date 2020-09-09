@@ -6,7 +6,8 @@ export const elements = {
     searchForm: document.querySelector('.search'),
     searchInput: document.querySelector('.search__field'),
     searchResultList: document.querySelector('.results__list'),
-    pagination: document.querySelector('.results__pages')
+    pagination: document.querySelector('.results__pages'),
+    recipe: document.querySelector('.recipe')
 };
 
 /**
