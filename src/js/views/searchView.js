@@ -99,6 +99,22 @@ export const clearResults = () => {
 }
 
 /**
+ * Highlight selected recipe.
+ * @param id
+ */
+export const highlightSelected = id => {
+
+    // Remove active class from all
+    document.querySelectorAll('.results__link')
+        .forEach(item => {
+            item.classList.remove('results__link--active');
+        })
+
+    // Add active class for selected
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+}
+
+/**
  * Limit recipe title.
  * @param title
  * @param limit
