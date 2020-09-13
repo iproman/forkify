@@ -1,8 +1,9 @@
 import Search from './models/Search';
+import Recipe from './models/Recipe';
+import List from './models/List';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import {clearLoader, elements, loader} from './views/base';
-import Recipe from './models/Recipe';
 
 /**
  * Global state of app
@@ -108,6 +109,19 @@ const controlRecipe = async () => {
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe))
 
 /**
+ * Shop list controller.
+ */
+const controlList = () => {
+    // Create a new list IF there is none yet
+    if (!state.list) state.list = new List();
+
+    // Add each ingredients to the list
+    state.recipe.ingredients.forEach(ing => {
+        state.list.addItem(ing.count, ing.unit, ing.ingredient);
+    });
+}
+
+/**
  * Actions in recipe view.
  * increase/decrease servings.
  */
@@ -123,5 +137,7 @@ elements.recipe.addEventListener('click', (e) => {
         // Increase btn is clicked
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
+    } else if (e.target.matches('.recipe__btn--add-shop, .recipe__btn--add-shop *')) {
+        controlList();
     }
 })
