@@ -3,6 +3,7 @@ import Recipe from './models/Recipe';
 import List from './models/List';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
+import * as listView from './views/listView';
 import {clearLoader, elements, loader} from './views/base';
 
 /**
@@ -118,6 +119,11 @@ const controlList = () => {
     // Add each ingredients to the list
     state.recipe.ingredients.forEach(ing => {
         state.list.addItem(ing.count, ing.unit, ing.ingredient);
+    });
+
+    // Render each ingredient
+    state.list.items.forEach(e => {
+        listView.renderItem(e);
     });
 }
 
