@@ -21,3 +21,12 @@ export const renderItem = item => {
     `;
     elements.shoppingList.insertAdjacentHTML('beforeend', markup);
 };
+
+/**
+ * Delete shopping item.
+ * @param id
+ */
+export const deleteItem = id => {
+    const item = document.querySelector(`[data-itemid="${id}"]`);
+    item.remove();
+};
