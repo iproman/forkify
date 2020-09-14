@@ -46,27 +46,6 @@ const controlSearch = async () => {
 }
 
 /**
- * Event listener for search.
- */
-elements.searchForm.addEventListener('submit', e => {
-    e.preventDefault();
-    // Promise returned
-    controlSearch();
-});
-
-/**
- * Event listener for pagination.
- */
-elements.pagination.addEventListener('click', e => {
-    const btn = e.target.closest('.btn-inline');
-    if (btn) {
-        const goToPage = parseInt(btn.dataset.goto, 10);
-        searchView.clearResults();
-        searchView.renderSearchResults(state.search.result, goToPage);
-    }
-});
-
-/**
  * Recipe controller.
  */
 const controlRecipe = async () => {
@@ -128,8 +107,28 @@ const controlList = () => {
 }
 
 /**
- * Actions in recipe view.
- * increase/decrease servings.
+ * Event listener for search.
+ */
+elements.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    // Promise returned
+    controlSearch();
+});
+
+/**
+ * Event listener for pagination.
+ */
+elements.pagination.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.clearResults();
+        searchView.renderSearchResults(state.search.result, goToPage);
+    }
+});
+
+/**
+ * Event listener for increase/decrease servings.
  */
 elements.recipe.addEventListener('click', (e) => {
     if (e.target.matches('.btn-decrease, .btn-decrease *')) {
@@ -149,7 +148,7 @@ elements.recipe.addEventListener('click', (e) => {
 })
 
 /**
- * Handle delete and update list item events.
+ * Event listener for delete/update shopping list item.
  */
 elements.shoppingList.addEventListener('click', e => {
 
