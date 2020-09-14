@@ -147,3 +147,22 @@ elements.recipe.addEventListener('click', (e) => {
         controlList();
     }
 })
+
+/**
+ * Handle delete list item event.
+ */
+elements.shoppingList.addEventListener('click', e => {
+
+    // Handle the delete button
+    if (e.target.matches('.shopping__delete, .shopping__delete *')) {
+
+        const id = e.target.closest('.shopping__item').dataset.itemid;
+
+        // Delete from state
+        state.list.deleteItem(id);
+
+        // Delete from UI
+        listView.deleteItem(id);
+
+    }
+})
