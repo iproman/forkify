@@ -149,7 +149,7 @@ elements.recipe.addEventListener('click', (e) => {
 })
 
 /**
- * Handle delete list item event.
+ * Handle delete and update list item events.
  */
 elements.shoppingList.addEventListener('click', e => {
 
@@ -164,5 +164,12 @@ elements.shoppingList.addEventListener('click', e => {
         // Delete from UI
         listView.deleteItem(id);
 
+        // Handle the count update
+    } else if (e.target.matches('.shopping__count-value')) {
+        const id = e.target.closest('.shopping__item').dataset.itemid;
+        const value = parseFloat(e.target.value);
+
+        // Update state
+        state.list.updateCount(id, value);
     }
 })
