@@ -32,4 +32,14 @@ export default class Likes {
         let elId = this.likes.findIndex(el => el.id === id);
         this.likes.splice(elId, 1);
     }
+
+    /**
+     * Check if recipe is liked.
+     * @param id
+     * @return {boolean}
+     */
+    isLiked(id) {
+        return this.likes
+            .findIndex(el => el.id === id) !== -1;
+    }
 }
