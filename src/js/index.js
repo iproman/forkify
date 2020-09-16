@@ -90,6 +90,27 @@ const controlRecipe = async () => {
  */
 const controlLike = () => {
     if (!state.likes) state.likes = new Likes();
+
+    const recipe = state.recipe;
+    const currentID = recipe.id;
+
+    // User has NOT liked current recipe
+    if (!state.likes.isLiked(currentID)) {
+        // Add like to the state
+        state.likes.addLike(
+            currentID,
+            recipe.title,
+            recipe.author,
+            recipe.img
+        );
+
+        // Toggle the like button
+
+        // Add like to UI list
+        console.log(state.likes);
+
+        // User has liked current recipe.
+    }
 }
 
 /**
