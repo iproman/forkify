@@ -42,4 +42,12 @@ export default class Likes {
         return this.likes
             .findIndex(el => el.id === id) !== -1;
     }
+
+    /**
+     * Total number of likes.
+     * @return {number}
+     */
+    getNumLikes() {
+        return this.likes.length;
+    }
 }

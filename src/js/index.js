@@ -127,6 +127,9 @@ const controlLike = () => {
         // Remove like from UI list
         console.log(state.likes);
     }
+
+    // Toggle like menu
+    likesView.toggleLikeMenu(state.likes.getNumLikes())
 }
 
 /**

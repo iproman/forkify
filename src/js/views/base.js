@@ -9,6 +9,7 @@ export const elements = {
     pagination: document.querySelector('.results__pages'),
     recipe: document.querySelector('.recipe'),
     shoppingList: document.querySelector('.shopping__list'),
+    likesMenu: document.querySelector('.likes__field')
 };
 
 /**
