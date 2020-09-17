@@ -76,7 +76,12 @@ const controlRecipe = async () => {
 
             // Render recipe
             clearLoader();
-            recipeView.renderRecipe(state.recipe);
+
+            // Check if state.likes not exist
+            if (!state.likes) state.likes = new Likes();
+
+            // Render recipe
+            recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
 
         } catch (e) {
             clearLoader();
