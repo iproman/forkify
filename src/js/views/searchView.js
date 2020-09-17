@@ -111,7 +111,7 @@ export const highlightSelected = id => {
         })
 
     // Add active class for selected
-    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+    document.querySelector(`a.results__link[href="#${id}"]`).classList.add('results__link--active');
 }
 
 /**
