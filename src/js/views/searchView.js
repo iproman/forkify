@@ -120,7 +120,7 @@ export const highlightSelected = id => {
  * @param limit
  * @return {string|*}
  */
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     if (title.length > limit) {
         const newTitle = [];
         title.split(' ').reduce((prev, cur) => {
