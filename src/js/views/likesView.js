@@ -19,7 +19,7 @@ export const toggleLikeMenu = numLikes => {
     elements.likesMenu.style.visibility = numLikes ? 'visible' : 'hidden';
 }
 /**
- * Render new like.
+ * Render new favourite recipe.
  * @param like
  */
 export const renderLike = like => {
@@ -37,4 +37,12 @@ export const renderLike = like => {
     </li>
     `;
     elements.likesList.insertAdjacentHTML('beforeend', markup);
+}
+/**
+ * Delete recipe from favourites.
+ * @param id
+ */
+export const deleteLike = id => {
+    const el = document.querySelector(`a.likes__link[href*="${id}"]`).parentElement;
+    if (el) el.remove();
 }
