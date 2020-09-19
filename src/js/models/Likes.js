@@ -64,4 +64,13 @@ export default class Likes {
     persistData() {
         localStorage.setItem('likes', JSON.stringify(this.likes));
     }
+
+    /**
+     * Restore liked recipes from localstorage.
+     */
+    readStorage() {
+        const storage = JSON.parse(localStorage.getItem('likes'));
+
+        if (storage) this.likes = storage;
+    }
 }

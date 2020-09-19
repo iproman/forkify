@@ -173,11 +173,16 @@ elements.pagination.addEventListener('click', e => {
     }
 });
 
-// Restore liked recipes on page load
+/**
+ * Event listener for restoring liked recipes when page loads.
+ */
 window.addEventListener('load', () => {
 
     // Create new likes object.
     state.likes = new Likes();
+
+    // Restore likes
+    state.likes.readStorage();
 })
 
 /**
