@@ -21,6 +21,10 @@ export default class Likes {
         };
 
         this.likes.push(like);
+
+        // Persist data in localstorage
+        this.persistData();
+
         return like;
     }
 
@@ -31,6 +35,9 @@ export default class Likes {
     deleteLike(id) {
         let elId = this.likes.findIndex(el => el.id === id);
         this.likes.splice(elId, 1);
+
+        // Persist data in localstorage
+        this.persistData();
     }
 
     /**
@@ -49,5 +56,12 @@ export default class Likes {
      */
     getNumLikes() {
         return this.likes.length;
+    }
+
+    /**
+     * Persist liked recipes in localstorage.
+     */
+    persistData() {
+        localStorage.setItem('likes', JSON.stringify(this.likes));
     }
 }
