@@ -183,6 +183,12 @@ window.addEventListener('load', () => {
 
     // Restore likes
     state.likes.readStorage();
+
+    // Toggle like menu button
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+    // Render like recipes in menu
+    state.likes.likes.forEach(like => likesView.renderLike(like));
 })
 
 /**
