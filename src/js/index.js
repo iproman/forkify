@@ -77,9 +77,6 @@ const controlRecipe = async () => {
             // Render recipe
             clearLoader();
 
-            // Check if state.likes not exist
-            if (!state.likes) state.likes = new Likes();
-
             // Render recipe
             recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
 
@@ -175,6 +172,13 @@ elements.pagination.addEventListener('click', e => {
         searchView.renderSearchResults(state.search.result, goToPage);
     }
 });
+
+// Restore liked recipes on page load
+window.addEventListener('load', () => {
+
+    // Create new likes object.
+    state.likes = new Likes();
+})
 
 /**
  * Event listener for
