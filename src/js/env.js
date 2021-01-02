@@ -1,4 +1,4 @@
 export const env = {
-    url: '',
+    url: 'https://forkify-api.herokuapp.com',
     proxy: ''
 }
